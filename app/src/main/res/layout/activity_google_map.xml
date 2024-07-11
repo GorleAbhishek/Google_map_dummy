@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GoogleMapActivity">
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context="ru.nikartm.googlemaps.GoogleMapActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlue"
+        android:paddingTop="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_start_picker"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:padding="7dp"
+                android:src="@drawable/ic_radio_button"
+                android:background="@color/colorBlue"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:elevation="0dp"
+                app:cardBackgroundColor="@android:color/white" >
+
+                <TextView
+                    android:id="@+id/tv_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:padding="5dp"
+                    android:hint="Choose a starting point..." />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:padding="7dp"
+                android:src="@drawable/ic_place"
+                android:background="@color/colorBlue"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="0dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <TextView
+                    android:id="@+id/tv_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:padding="5dp"
+                    android:hint="Choose a destination..." />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:weightSum="90"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_duration_walk"
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:stateListAnimator="@null"
+                android:textSize="13sp"
+                android:text="0 min."
+                android:background="@drawable/btn_oval_blue"
+                android:drawableStart="@drawable/ic_directions_walk"/>
+
+            <Button
+                android:id="@+id/btn_duration_car"
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:stateListAnimator="@null"
+                android:textSize="13sp"
+                android:text="0 min."
+                android:background="@drawable/btn_oval_blue"
+                android:drawableStart="@drawable/ic_directions_car" />
+
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_weight="30"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp"
+                android:text="0 km"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_pin_drop"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_build_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_directions_white"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        app:layout_anchor="@id/linearLayout"
+        android:clickable="true"
+        android:layout_marginBottom="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
